@@ -12,7 +12,13 @@ public class Chain {
     WebHandler handler;
 
     public Chain(WebHandler handler) {
-        this.handler = handler;
+        this.handler =  new WebHandlerHigherThan500(
+                                      new WebHandlerBetween100_500(
+                                             new WebHandlerBetween100_500(
+                                                     new WebHandlerLessThan100(null)
+                                             )
+                                      )
+        );
     }
     
     void processStart(Request request) {

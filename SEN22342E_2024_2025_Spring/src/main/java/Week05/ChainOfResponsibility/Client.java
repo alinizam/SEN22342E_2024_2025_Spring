@@ -13,7 +13,7 @@ public class Client {
     public static void main(String[] args) {
         WebHandler chain = new WebHandlerBetween100_500(
                                       new WebHandlerBetween100_500(
-                                             new WebHandlerHigherThan500(
+                                             new WebHandlerBetween100_500(
                                                      new WebHandlerLessThan100(null)
                                              )
                                       )
